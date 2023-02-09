@@ -4,17 +4,22 @@
 const chars = {
   lower: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
   upper: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-  num: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-  special: [`!`, `"`, `#`, `$`, `%`, `&`, `'`, `(`, `)`, `*`, `+`, `,`, `-`, `.`, `/`, `:`, `;`, `<`, `=`, `>`, `?`, `@`, `[`, `]`, `^`, `_`, '`', `{`, `|`, `}`, `~`]
+  num: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  special: [` `, `!`, `"`, `#`, `$`, `%`, `&`, `'`, `(`, `)`, `*`, `+`, `,`, `-`, `.`, `/`, `:`, `;`, `<`, `=`, `>`, `?`, `@`, `[`, `]`, `^`, `_`, '`', `{`, `|`, `}`, `~`]
 }
 
 // function getting a random number with a variable passed for the length.
 const random = arr => Math.floor(Math.random() * arr.length);
 
 // variables that grab a random character from each of the above arrays
+
+//expected output: a-z
 const lowerRandom = chars.lower[random(chars.lower)];
+//expected output: A-Z
 const upperRandom = chars.upper[random(chars.upper)];
+//expected output: 0-9
 const numRandom = chars.num[random(chars.num)];
+//expected output:  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 const specialRandom = chars.special[random(chars.special)];
 
 function generatePassword() {
