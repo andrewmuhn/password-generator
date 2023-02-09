@@ -50,24 +50,37 @@ const getRandomAllChar = () => {
   }
 }
 
-// Todo: add at the end of a for loop inside of generatePassword variable
-// adds the randomly generated character to the end of the string in passwordGenerated. 
-passwordGenerated += getRandomAllChar();
-
-// ! Testing function. Delete in final code
-console.log(getRandomAllChar() + ' running function');
-console.log(passwordGenerated);
-
 function generatePassword() {
-  let charNum = prompt('How many characters ?', '20');
-  let lowerCase = confirm('Include lower case letters?');
-  let upperCase = confirm('Include uppercase letters?');
-  let numeric = confirm('Include numbers?');
-  let specialChar = confirm('Include special characters?');
+  let charNum = prompt('How many characters long do you want your password?', '20');
+  if (!charNum) {
+    alert('Please enter a numerical value between 8 and 128');
+    return;
+  }
+  // let lowerCase = confirm('Include lower case letters?');
+  // let upperCase = confirm('Include uppercase letters?');
+  // let numeric = confirm('Include numbers?');
+  // let specialChar = confirm('Include special characters?');
 
+  passLength = parseInt(charNum);
 
+  if (passLength < 8 || passLength > 128) {
+    alert('Please enter a numerical value between 8 and 128');
+    return;
+  } else {
+    for (let i = 0; i <= passLength; i++) {
+      // Todo: add inside of a for loop inside of generatePassword variable
+      // adds the randomly generated character to the end of the string in passwordGenerated. 
+      passwordGenerated += getRandomAllChar();
+    }
+  }
+
+  console.log(passLength);
+  return passwordGenerated;
 }
 
+// ! Testing function. Delete in final code
+//expected outcome a randomly generated sting of characters with a length entered by the user logs to the console
+console.log(passwordGenerated);
 
 
 // Get references to the #generate element
