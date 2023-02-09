@@ -2,14 +2,14 @@
 
 
 //Psuedo Code:
-//List of characters assigned to arrays that can be pulled from.
-//create a function that selects a random number than can recieve a variable to pass for the "length"
-//assign variables that pull from the random function by passing their respetive array length
+////List of characters assigned to arrays that can be pulled from.
+////create a function that selects a random number than can recieve a variable to pass for the "length"
+////assign variables that pull from the random function by passing their respetive array length
 //user is asked the length of password and if/if not to include lower, upper, numbers, or special characters
-//convert length of password from string to a num and assign it to a variable
-//randomly select one of the 4 variables that inturn pull a random character.
-//push that selected value onto a string.
-//repeate last 2 steps until passowrd length defined by the user is reached.
+////convert length of password from string to a num and assign it to a variable
+////randomly select one of the 4 variables that inturn pull a random character.
+////push that selected value onto a string.
+////repeate last 2 steps until passowrd length defined by the user is reached.
 
 
 
@@ -24,10 +24,6 @@ const chars = {
 
 // function that randomly selects a single character from the arrays in the chars object using the random selector variables.
 const getRandomAllChar = () => {
-
-  // function getting a random number with a variable passed for the length.
-  const random = arr => Math.floor(Math.random() * arr.length);
-
   // variables that grab a random character from each of the above arrays
   //expected output: a-z
   let lowerRandom = chars.lower[random(chars.lower)];
@@ -37,7 +33,6 @@ const getRandomAllChar = () => {
   let numRandom = chars.num[random(chars.num)];
   //expected output:  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   let specialRandom = chars.special[random(chars.special)];
-
 
   let number = Math.floor(Math.random() * 4);
   switch (number) {
@@ -54,28 +49,34 @@ const getRandomAllChar = () => {
 
 function generatePassword() {
   let passwordGenerated = ``;
-  let charNum = prompt('How many characters long do you want your password?', '20');
-  if (!charNum) {
 
+  // function getting a random number with a variable passed for the length.
+  const random = arr => Math.floor(Math.random() * arr.length);
+
+
+
+  //user prompts to select length of password and weather or not to include lowercase letters, uppercase letters, numbers, and/or special characters
+  let charNum = prompt('How many characters long do you want your password?', '20');
+
+  //validates that the initial prompt is both a number and between 8 and 128.
+  passLength = parseInt(charNum);
+  if (!charNum || isNaN(charNum) || passLength < 8 || passLength > 128) {
     alert('Please enter a numerical value between 8 and 128');
     return;
   }
-  // let lowerCase = confirm('Include lower case letters?');
-  // let upperCase = confirm('Include uppercase letters?');
-  // let numeric = confirm('Include numbers?');
-  // let specialChar = confirm('Include special characters?');
 
-  passLength = parseInt(charNum);
+  let lowerCase = confirm('Include lower case letters?');
+  let upperCase = confirm('Include uppercase letters?');
+  let numeric = confirm('Include numbers?');
+  let specialChar = confirm('Include special characters?');
 
-  if (passLength < 8 || passLength > 128) {
-    alert('Please enter a numerical value between 8 and 128');
-    return;
-  } else {
+
+ 
+
+  else if (lowerCase && upperCase && numeric && specialChar) {
     for (let i = 1; i <= passLength; i++) {
-      getRandomAllChar();
-      // Todo: add inside of a for loop inside of generatePassword variable
-      // adds the randomly generated character to the end of the string in passwordGenerated. 
-      passwordGenerated += getRandomAllChar();
+      // 
+
     }
   }
 
