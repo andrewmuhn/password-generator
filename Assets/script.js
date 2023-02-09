@@ -1,5 +1,6 @@
 // Assignment code here
 
+
 //Psuedo Code:
 //List of characters assigned to arrays that can be pulled from.
 //create a function that selects a random number than can recieve a variable to pass for the "length"
