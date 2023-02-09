@@ -12,7 +12,7 @@
 //repeate last 2 steps until passowrd length defined by the user is reached.
 
 
-let passwordGenerated = ``;
+
 
 // Object contain arrays of all possible characters a password may use grouped into key value pairs that the user can select.
 const chars = {
@@ -22,21 +22,23 @@ const chars = {
   special: [` `, `!`, `"`, `#`, `$`, `%`, `&`, `'`, `(`, `)`, `*`, `+`, `,`, `-`, `.`, `/`, `:`, `;`, `<`, `=`, `>`, `?`, `@`, `[`, `]`, `^`, `_`, '`', `{`, `|`, `}`, `~`]
 }
 
-// function getting a random number with a variable passed for the length.
-const random = arr => Math.floor(Math.random() * arr.length);
-
-// variables that grab a random character from each of the above arrays
-//expected output: a-z
-let lowerRandom = chars.lower[random(chars.lower)];
-//expected output: A-Z
-let upperRandom = chars.upper[random(chars.upper)];
-//expected output: 0-9
-let numRandom = chars.num[random(chars.num)];
-//expected output:  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-let specialRandom = chars.special[random(chars.special)];
-
 // function that randomly selects a single character from the arrays in the chars object using the random selector variables.
 const getRandomAllChar = () => {
+
+  // function getting a random number with a variable passed for the length.
+  const random = arr => Math.floor(Math.random() * arr.length);
+
+  // variables that grab a random character from each of the above arrays
+  //expected output: a-z
+  let lowerRandom = chars.lower[random(chars.lower)];
+  //expected output: A-Z
+  let upperRandom = chars.upper[random(chars.upper)];
+  //expected output: 0-9
+  let numRandom = chars.num[random(chars.num)];
+  //expected output:  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  let specialRandom = chars.special[random(chars.special)];
+
+
   let number = Math.floor(Math.random() * 4);
   switch (number) {
     case 0:
@@ -51,8 +53,10 @@ const getRandomAllChar = () => {
 }
 
 function generatePassword() {
+  let passwordGenerated = ``;
   let charNum = prompt('How many characters long do you want your password?', '20');
   if (!charNum) {
+
     alert('Please enter a numerical value between 8 and 128');
     return;
   }
@@ -67,21 +71,19 @@ function generatePassword() {
     alert('Please enter a numerical value between 8 and 128');
     return;
   } else {
-    for (let i = 0; i <= passLength; i++) {
+    for (let i = 1; i <= passLength; i++) {
+      getRandomAllChar();
       // Todo: add inside of a for loop inside of generatePassword variable
       // adds the randomly generated character to the end of the string in passwordGenerated. 
       passwordGenerated += getRandomAllChar();
     }
   }
 
-  console.log(passLength);
+  // ! Testing function. Delete in final code
+  //expected outcome a randomly generated sting of characters with a length entered by the user logs to the console
+  console.log(passwordGenerated);
   return passwordGenerated;
 }
-
-// ! Testing function. Delete in final code
-//expected outcome a randomly generated sting of characters with a length entered by the user logs to the console
-console.log(passwordGenerated);
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
