@@ -1,20 +1,17 @@
 // Assignment code here
 
 
-//Psuedo Code:
-//List of characters assigned to arrays that can be pulled from.
-//create an empty variable that will be used to store combined arrays
-//create a function that selects a random number than can recieve a variable to pass for the "length"
-//user is asked the length of password and if/if not to include lower, upper, numbers, or special characters
-//convert length of password from string to a num and assign it to a variable
-//based on user selections add the arrays together and save them to predefined variable
-//randomly select a value from the new array the number of times that of the users selected password length
-//push that selected value onto a string.
-//repeate last 2 steps until passowrd length defined by the user is reached.
-//return the finished password
-
-
-
+// Psuedo Code:
+// List of characters assigned to arrays that can be pulled from.
+// create an empty variable that will be used to store combined arrays
+// create a function that selects a random number than can recieve a variable to pass for the "length"
+// user is asked the length of password and if/if not to include lower, upper, numbers, or special characters
+// convert length of password from string to a num and assign it to a variable
+// based on user selections add the arrays together and save them to predefined variable
+// randomly select a value from the new array the number of times that of the users selected password length
+// push that selected value onto a string.
+// repeate last 2 steps until passowrd length defined by the user is reached.
+// return the finished password
 
 // Object contain arrays of all possible characters a password may use grouped into key value pairs that the user can select.
 const chars = {
